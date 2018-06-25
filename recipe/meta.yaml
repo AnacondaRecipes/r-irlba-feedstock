@@ -35,11 +35,13 @@ requirements:
   host:
     - r-base
     - r-matrix
+    - libopenblas                # [osx]
 
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-matrix
+    - libopenblas                # [osx]
 
 test:
   commands:
