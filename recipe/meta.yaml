@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: irlba_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/irlba_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
@@ -31,17 +30,18 @@ requirements:
     - {{native}}toolchain        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
     - r-matrix
-    - libopenblas                # [osx]
 
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-matrix
-    - libopenblas                # [osx]
 
 test:
   commands:
